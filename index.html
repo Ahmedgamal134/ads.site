@@ -56,7 +56,7 @@
         </div>
         
         <div class="ad-container" id="ad-container">
-            <!-- هنا هتظهر إعلانات جوجل -->
+            <!-- هنا هتظهر إعلانات جوجل بعدين -->
             <div style="color: black; padding: 20px;">
                 ⏳ جاري تحميل الإعلان...
             </div>
@@ -72,7 +72,6 @@
     <script>
         let timeLeft = 15;
         const timerElement = document.getElementById('timer');
-        const statusElement = document.getElementById('status');
         
         // مؤقت العد التنازلي
         const timer = setInterval(() => {
@@ -82,7 +81,7 @@
             if (timeLeft <= 0) {
                 clearInterval(timer);
                 timerElement.style.display = 'none';
-                statusElement.innerHTML = '✅ تمت المشاهدة! يمكنك العودة للبوت لاستلام نقاطك';
+                document.getElementById('status').innerHTML = '✅ تمت المشاهدة! يمكنك العودة للبوت لاستلام نقاطك';
             }
         }, 1000);
     </script>
