@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مشاهدة إعلان - بوت الربح</title>
+    <!-- كود AdSense للتحقق والإعلانات -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5428455544547060" crossorigin="anonymous"></script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -43,6 +45,9 @@
             padding: 10px;
             margin: 20px 0;
             min-height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -56,10 +61,16 @@
         </div>
         
         <div class="ad-container" id="ad-container">
-            <!-- هنا هتظهر إعلانات جوجل بعدين -->
-            <div style="color: black; padding: 20px;">
-                ⏳ جاري تحميل الإعلان...
-            </div>
+            <!-- هنا هتظهر إعلانات AdSense -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5428455544547060"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
         
         <div class="timer" id="timer">15</div>
@@ -72,6 +83,7 @@
     <script>
         let timeLeft = 15;
         const timerElement = document.getElementById('timer');
+        const statusElement = document.getElementById('status');
         
         // مؤقت العد التنازلي
         const timer = setInterval(() => {
@@ -81,7 +93,7 @@
             if (timeLeft <= 0) {
                 clearInterval(timer);
                 timerElement.style.display = 'none';
-                document.getElementById('status').innerHTML = '✅ تمت المشاهدة! يمكنك العودة للبوت لاستلام نقاطك';
+                statusElement.innerHTML = '✅ تمت المشاهدة! يمكنك العودة للبوت لاستلام نقاطك';
             }
         }, 1000);
     </script>
