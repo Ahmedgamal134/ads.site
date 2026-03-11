@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مشاهدة إعلان - بوت الربح</title>
-    <!-- كود AdsGram للإعلانات -->
-    <script src="https://adsgram.ai/js/ads.js" data-slot="24878"></script>
     <style>
+        /* نفس الـ CSS القديم */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -51,6 +50,67 @@
         </div>
         
         <div class="timer" id="timer">15</div>
+        
+        <!-- كود Ezmob الأول (فيديو) -->
+        <script type="text/javascript" src="https://docdn.ezmob.com/prebid.js" async></script>
+        <script>
+            var pbjs = pbjs || {};
+            pbjs.que = pbjs.que || [];
+            
+            pbjs.que.push(function() {
+                var adUnits = [{
+                    code: 'container-1',
+                    mediaTypes: {
+                        video: {
+                            context: 'outstream',
+                            playerSize: [300, 250],
+                            renderer: {
+                                url: 'https://docdn.ezmob.com/outstream_pb.js',
+                                render: renderOutstream
+                            }
+                        }
+                    },
+                    bids: [{
+                        bidder: 'adkernel',
+                        params: {
+                          zoneId: 341887,
+                          host: 'cpm.ezmob.com'
+                        }
+
+                    }]
+                }];
+                pbjs.addAdUnits(adUnits);
+                pbjs.requestBids({
+                    bidsBackHandler: function(bidResponses) {
+                        process('container-1');
+                    }
+                });
+            });
+
+            function process(adUnit) {
+                var bidResponses = pbjs.getHighestCpmBids(adUnit);
+                if (bidResponses.length == 0) {
+                    return;
+                }
+                var bid = bidResponses[0];
+                pbjs.renderAd(document, bid.adId);
+            }
+            
+            function renderOutstream(bid) {
+                OutstreamPlayerPB(bid, {
+                    displayMode: 'floating',
+                    transitions: true,
+                    vpaidMode: 2
+                });
+            }
+        </script>
+        <div id="container-1"></div>
+
+        <!-- كود Ezmob التاني (بانر) -->
+        <script type="text/javascript">
+            var __jscp=function(){for(var b=0,a=window;a!=a.parent;)++b,a=a.parent;if(a=window.parent==window?document.URL:document.referrer){var c=a.indexOf("://");0<=c&&(a=a.substring(c+3));c=a.indexOf("/");0<=c&&(a=a.substring(0,c))}var b={pu:a,"if":b,rn:new Number(Math.floor(99999999*Math.random())+1)},a=[],d;for(d in b)a.push(d+"="+encodeURIComponent(b[d]));return encodeURIComponent(a.join("&"))};
+            document.write('<S' + 'CRIPT TYPE="text/javascript" SRC="//cpm.ezmob.com/tag?zone_id=341886&size=300x250&subid=&j=' + __jscp() + '"></S' + 'CRIPT>');
+        </script>
         
         <div class="message" id="status">
             شاهد الإعلان وانتظر...
