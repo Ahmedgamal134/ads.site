@@ -1,7 +1,0 @@
-{
-  "type": "static",
-  "static": {
-    "index": "index.html",
-    "public": "."
-  }
-}
